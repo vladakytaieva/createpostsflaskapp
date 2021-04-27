@@ -13,11 +13,10 @@
         <div class="container">
             <header class="d-flex justify-content-center py-3">
               <ul class="nav nav-pills">
-                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="/create-article" class="nav-link">Create</a></li>
-                <li class="nav-item"><a href="/posts" class="nav-link">Posts</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/" class="nav-link {{ 'active' if page=='home' }}">Home</a></li>
+                <li class="nav-item"><a href="/create-article" class="nav-link {{ 'active' if page=='create' }}">Create</a></li>
+                <li class="nav-item"><a href="/posts" class="nav-link {{ 'active' if page=='posts' }}">Posts</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link {{ 'active' if page=='about' }}">About</a></li>
               </ul>
             </header>
           </div>

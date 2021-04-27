@@ -20,21 +20,21 @@ class Article(db.Model):
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', page='home')
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', page='about')
 
 @app.route('/posts')
 def posts():
     articles = Article.query.order_by(Article.date.desc()).all()
-    return render_template('posts.html', articles=articles)
+    return render_template('posts.html', articles=articles, page='posts')
 
 @app.route('/posts/<int:id>')
 def post_more(id):
     article = Article.query.get(id)
-    return render_template('post.html', article=article)
+    return render_template('post.html', article=article, page='posts')
 
 @app.route('/posts/<int:id>/delete')
 def post_delete(id):
@@ -62,7 +62,7 @@ def post_update(id):
             return "Oops, can't update your article"
     
     else:
-        return render_template('update.html', article=article)
+        return render_template('update.html', article=article, page='posts')
 
 @app.route('/create-article', methods=['POST', 'GET'])
 def create():
@@ -81,7 +81,7 @@ def create():
             return "Oops, can't create your article"
     
     else:
-        return render_template('create.html')
+        return render_template('create.html', page='create')
 
 if __name__ == "__main__":
     app.run(debug=True)
